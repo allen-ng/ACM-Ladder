@@ -1,0 +1,21 @@
+# Set application configuration variables here.
+
+HOST:		""
+
+# Set site admin account credentials.
+ADMIN_HANDLE:	""
+ADMIN_EMAIL:	""
+ADMIN_PASSWORD:	""	# At least 6 characters.
+
+# Set gmail account credentials for action mailer.
+GMAIL_USERNAME:	""
+GMAIL_PASSWORD:	""
+
+# Set OJ account credentials.
+POJ_HANDLE:	""
+POJ_PASSWORD:	""
+NKOJ_HANDLE:	""
+NKOJ_PASSWORD:	""
+
+# Set link for "Fork me on GitHub" ribbon.
+GITHUB_LINK:	""

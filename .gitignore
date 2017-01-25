@@ -15,10 +15,10 @@
 /tmp
 
 # Ignore personal application configuration file.
-/config/application.yml
+# /config/application.yml
 
 # Ignore personal database configuration file.
-/config/database.yml
+# /config/database.yml
 
 # Ignore secret token.
 /config/initializers/secret_token.rb

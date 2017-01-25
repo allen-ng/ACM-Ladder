@@ -3,7 +3,7 @@ dist: trusty
 rvm:
   - 2.3.3
 
-script: bundle exec rspec
+script: export ADMIN_HANDLE=a ADMIN_PASSWORD=123456 ADMIN_EMAIL=a@b.c && bundle exec rspec
 bundler_args: --without production
 before_install:
   - gem update --system
