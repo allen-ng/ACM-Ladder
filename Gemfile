@@ -13,6 +13,14 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :test do
+  # Test frameworks
+  gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'capybara'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
