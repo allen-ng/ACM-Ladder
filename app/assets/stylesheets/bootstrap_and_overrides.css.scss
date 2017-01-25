@@ -1,14 +1,16 @@
+@import "bootstrap-sprockets";
+@import "bootstrap/variables";
 @import "bootstrap";
+
 body {
     padding-top: 60px;
     background-color: whitesmoke;
 }
 
 textarea {
-    font-family: $monoFontFamily;
+    font-family: $font-family-monospace;
 }
 
 .problem-label .label {
     padding: 2px 10px;
 }
-@import "bootstrap-responsive";
