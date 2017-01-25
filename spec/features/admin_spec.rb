@@ -1,22 +1,22 @@
 require "rails_helper"
 
-feature '管理员可以管理问题' do
+feature 'administrator can manage problems' do
   fixtures :users
   fixtures :settings
 
-  background '管理员已经登录' do
+  background 'administrator logged in' do
     user = users(:admin)
     user.add_role :admin
     user.remove_role :user
     sign_in user
   end
 
-  scenario '管理员可以增加poj题目' do
+  scenario 'administrator can add poj problem' do
     visit '/problems/new'
     select("POJ", from: "Source")
   end
 
-  pending '管理员可以增加codeforces题目' do
+  pending 'administrator can add codeforces problem' do
     visit '/problems/new'
     select("Codeforces", from: "Source")
   end
