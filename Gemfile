@@ -53,6 +53,7 @@ gem 'jquery-rails'
 
 gem 'hpricot'
 gem 'bootstrap-sass'
+# gem 'simple_form'
 gem 'simple_form'
 gem 'delayed_job_active_record'
 gem 'daemons'
