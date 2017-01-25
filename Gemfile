@@ -16,6 +16,8 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'capybara'
   gem 'sqlite3'
+
+  # Assert that big sessions is ok with test environment
 end
 
 group :test do
@@ -65,5 +67,6 @@ gem 'rolify'
 gem 'pry-rails'
 gem 'coderay'
 gem 'protected_attributes_continued' # This should be replaced after need for attr_accesible is removed from project
+gem 'activerecord-session_store' # This is to ensure big session is ok
 
 gem 'byebug'

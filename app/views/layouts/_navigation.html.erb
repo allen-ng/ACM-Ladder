@@ -28,23 +28,13 @@
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
-      <li class="nav-header">
-      Problem Admin
-      </li>
-      <li>
-      <%= link_to "New Problem", new_problem_path %>
-      </li>
+      <li class="dropdown-header"> Problem Admin </li>
+      <li><%= link_to "New Problem", new_problem_path %></li>
       <% if params[:controller] == 'problems' && params[:action] == 'show' %>
-        <li>
-        <%= link_to "Edit Problem", edit_problem_path %>
-        </li>
+        <li><%= link_to "Edit Problem", edit_problem_path %></li>
       <% end %>
-      <li class="nav-header">
-      Site Admin
-      </li>
-      <li>
-      <%= link_to "Settings", edit_setting_path %>
-      </li>
+      <li class="dropdown-header">Site Admin</li>
+      <li><%= link_to "Settings", edit_setting_path %></li>
     </ul>
     </li>
   <% end %>

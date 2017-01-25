@@ -35,3 +35,6 @@
 
 # Ignore IDE files
 /.idea
+
+# Debug history
+.byebug_history
