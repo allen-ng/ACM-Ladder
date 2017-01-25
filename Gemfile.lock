@@ -134,6 +134,8 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    protected_attributes_continued (1.2.4)
+      activemodel (>= 4.0.1, < 6.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -255,6 +257,7 @@ DEPENDENCIES
   hpricot
   jquery-rails
   mysql2
+  protected_attributes_continued
   pry-rails
   rails (= 5.0.1)
   rolify

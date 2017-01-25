@@ -1,6 +1,12 @@
 TODO LIST
 =========
 
+Update
+------
+- 删除对于protected_attributes_continued的依赖
+- 升级Devise对于attr_accesible的支持
+  (Reference: https://github.com/plataformatec/devise)
+
 Features
 --------
 - 勋章系统
@@ -21,3 +27,5 @@ UI
 Bugs
 ----
 - http://acm.nankai.edu.cn/ladder/users/sam.gong
+
+

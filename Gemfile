@@ -63,5 +63,6 @@ gem 'cancan'
 gem 'rolify'
 gem 'pry-rails'
 gem 'coderay'
+gem 'protected_attributes_continued' # This should be replaced after need for attr_accesible is removed from project
 
 gem 'byebug'
