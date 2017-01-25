@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @users = User.where(:level => 0..Setting.find_by_key("MAX_LEVEL").value.to_i) if session[:ranking][:toggle_finished] == 0
     @submitted = {}
     @users.each { |user| @submitted[user] = user.submissions.count }
-    @users.sort! do |x, y|
+    @users = @users.sort do |x, y|
       if x.exp != y.exp
         y.exp <=> x.exp
       else
