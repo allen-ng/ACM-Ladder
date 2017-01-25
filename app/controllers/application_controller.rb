@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :check_level_up
+  before_action :check_level_up
 
   rescue_from CanCan::AccessDenied do |exception|
     if exception.action == :new && exception.subject.class == Submission

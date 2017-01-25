@@ -10,15 +10,15 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3'
-end
-
-group :test do
   # Test frameworks
   gem 'rspec-rails'
   gem 'guard'
   gem 'guard-rspec'
   gem 'capybara'
+  gem 'sqlite3'
+end
+
+group :test do
 end
 
 

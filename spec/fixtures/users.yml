@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+admin:
+  handle: Admin
+  level: 1
+  school: TestSchool
+  student_id: 1234567
+  college: MyString
+  major: MyString
+  mobile: MyString
+  email: admin@acm.nankai.edu.cn
+
+user:
+  handle: User
+  level: 1
+  school: TestSchool
+  student_id: 1311111
+  college: MyString
+  major: MyString
+  mobile: MyString
+  email: user@acm.nankai.edu.cn

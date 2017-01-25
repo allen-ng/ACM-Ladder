@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+# DEFAULT_SETTINGS
+MAX_LEVEL:
+  key: MAX_LEVEL
+  value: 0
+
+EXP_L0:
+  key: EXP_L0
+  value: 0
+
+MAX_DIFFICULTY:
+  key: MAX_DIFFICULTY
+  value: 0
+
+SHOW_ANNOUNCEMENT:
+  key: SHOW_ANNOUNCEMENT
+  value: 0
+
+ANNOUNCEMENT:
+  key: ANNOUNCEMENT
+  value: ""
