@@ -1,4 +1,4 @@
-ACMLadder::Application.routes.draw do
+Rails.application.routes.draw do
   resource :setting, :only => [:edit, :update], :path_names => { :edit => '' }
 
   devise_for :users, :path => 'u', :skip => :registrations

@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
          :async
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :college, :handle, :level, :major, :mobile, :school, :student_id
+  #attr_accessible :email, :password, :password_confirmation, :remember_me
+  #attr_accessible :college, :handle, :level, :major, :mobile, :school, :student_id
   validates_presence_of :handle
   validates_uniqueness_of :handle
 
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
-  attr_accessible :login
+  #attr_accessible :login
 
   # Overriding the following method for authenticating by either username of email
   def self.find_first_by_auth_conditions(warden_conditions)

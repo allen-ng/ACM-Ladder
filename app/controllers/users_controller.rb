@@ -39,4 +39,12 @@ class UsersController < ApplicationController
     end
     @submitted = @user.submissions.pluck(:problem_id)
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me,
+                                 :college, :handle, :level, :major, :mobile, :school, :student_id,
+                                 :login)
+  end
 end
