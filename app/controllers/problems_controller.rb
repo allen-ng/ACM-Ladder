@@ -27,9 +27,9 @@ class ProblemsController < ApplicationController
     @status = []
     if user_signed_in?
       accepted = OJ::StatusSymToID[:ac]
-      accepted_status = current_user.submissions.where(:problem_id => @problems, :status => accepted).select(:problem_id).uniq
+      accepted_status = current_user.submissions.where(:problem_id => @problems, :status => accepted).select(:problem_id).distinct
       accepted_status.each { |submission| @status[submission.problem_id] = :accepted }
-      opened_status = current_user.submissions.where(:problem_id => @problems).select(:problem_id).uniq
+      opened_status = current_user.submissions.where(:problem_id => @problems).select(:problem_id).distinct
       opened_status.each { |submission| @status[submission.problem_id] ||= :failed }
       @problems.each { |problem| @status[problem.id] ||= :unopened }
     end
@@ -64,7 +64,7 @@ class ProblemsController < ApplicationController
       Setting.update_exp
       if @problem.exp != old_exp
         accepted = OJ::StatusSymToID[:ac]
-        @problem.submissions.where(:status => accepted).select(:user_id).uniq.each { |submission| submission.user.add_exp(@problem.exp - old_exp) }
+        @problem.submissions.where(:status => accepted).select(:user_id).distinct.each { |submission| submission.user.add_exp(@problem.exp - old_exp) }
       end
       redirect_to problem_path(@problem), :notice => "Problem was successfully updated."
     else

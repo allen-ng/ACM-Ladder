@@ -10,5 +10,8 @@ feature 'user can submit problems' do
   end
 
   # add user submission test
+  scenario 'user can submit a problem' do
+    visit 'submission/new'
 
+  end
 end

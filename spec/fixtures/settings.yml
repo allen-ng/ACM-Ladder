@@ -2,7 +2,7 @@
 # DEFAULT_SETTINGS
 MAX_LEVEL:
   key: MAX_LEVEL
-  value: 0
+  value: 5
 
 EXP_L0:
   key: EXP_L0
@@ -10,7 +10,7 @@ EXP_L0:
 
 MAX_DIFFICULTY:
   key: MAX_DIFFICULTY
-  value: 0
+  value: 5
 
 SHOW_ANNOUNCEMENT:
   key: SHOW_ANNOUNCEMENT
