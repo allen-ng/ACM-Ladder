@@ -27,7 +27,7 @@ module POJ
       Net::HTTP.start(uri.host, uri.port) do |http|
         uri = URI("#{BaseURL}/login")
         request = Net::HTTP::Post.new(uri.request_uri)
-        request.set_form_data({ 'user_id1' => Handle, 'password1' => Password })
+        request.set_form_data({ 'user_id1' => Handle, 'password1' => Password, 'B1' => 'login', 'url' => '.' })
         response = http.request(request)
         cookies = response.response['set-cookie']
 
@@ -36,7 +36,8 @@ module POJ
         request['Cookie'] = cookies
         request.set_form_data({ 'problem_id' => submission.problem.original_id,
                                 'language' => language,
-                                'source' => submission.code })
+                                'source' => submission.code,
+                                'encoded' => '0'})
         response = http.request(request)
       end
 
