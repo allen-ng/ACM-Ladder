@@ -1,15 +1,16 @@
 module OJ
   SourceList = ["POJ", "NKOJ"]
 
-  LangSymToID = { :c => 0, :cpp => 1, :java => 2, :pascal => 3 }
+  LangSymToID = { :c => 0, :cpp => 1, :java => 2, :pascal => 3, :cpp14 => 4 }
   LangIDToSym = LangSymToID.invert
-  LangSymToName = { :c => "C", :cpp => "C++", :java => "Java", :pascal => "Pascal" }
+  LangSymToName = { :c => "C", :cpp => "C++", :java => "Java", :pascal => "Pascal", :cpp14 => "C++14" }
   LangNameToSym = LangSymToName.invert
   LangIDToName = {
     LangSymToID[:c]	=> LangSymToName[:c],
     LangSymToID[:cpp]	=> LangSymToName[:cpp],
     LangSymToID[:java]	=> LangSymToName[:java],
-    LangSymToID[:pascal]=> LangSymToName[:pascal]
+    LangSymToID[:pascal]=> LangSymToName[:pascal],
+    LangSymToID[:cpp14]=> LangSymToName[:cpp14]
   }
 
   StatusSymToID = {
