@@ -1,5 +1,6 @@
 require 'net/http'
 require 'open-uri'
+require 'json'
 
 # TODO: handles errors
 module NKOJ
@@ -8,16 +9,18 @@ module NKOJ
   Password = ENV['NKOJ_PASSWORD']
 
   LangCollection = {
-    "C (gcc)"		=> OJ::LangSymToID[:c],
-    "C++ (g++)"		=> OJ::LangSymToID[:cpp],
-    "Java (jdk6)"	=> OJ::LangSymToID[:java],
-    "Pascal (fpc)"	=> OJ::LangSymToID[:pascal]
+      "C (gcc)"		=> OJ::LangSymToID[:c],
+      "C++ (g++)"		=> OJ::LangSymToID[:cpp],
+      "Java (jdk6)"	=> OJ::LangSymToID[:java],
+      "Pascal (fpc)"	=> OJ::LangSymToID[:pascal],
+      "C++14 (g++14)"	=> OJ::LangSymToID[:cpp14]
   }
   LangSubmitID = {
-    OJ::LangSymToID[:c]		=> 0,
-    OJ::LangSymToID[:cpp]	=> 1,
-    OJ::LangSymToID[:java]	=> 3,
-    OJ::LangSymToID[:pascal]	=> 2
+      OJ::LangSymToID[:c]		=> 0,
+      OJ::LangSymToID[:cpp]	=> 1,
+      OJ::LangSymToID[:java]	=> 3,
+      OJ::LangSymToID[:pascal]	=> 2,
+      OJ::LangSymToID[:cpp14] => 4
   }
 
   class << self
@@ -43,7 +46,8 @@ module NKOJ
         uri = URI("#{BaseURL}/submit_process.php")
         request = Net::HTTP::Post.new(uri.request_uri)
         request['Cookie'] = cookies
-        request.set_form_data({ 'username' => Handle,
+        request.set_form_data({ 'json' => 1,
+                                'username' => Handle,
                                 'password' => password,
                                 'prob_id' => submission.problem.original_id,
                                 'language' => language,
@@ -51,21 +55,16 @@ module NKOJ
         response = http.request(request)
 
         # The body of response contains the final status of this submission.
-        doc = Hpricot(response.body)
-        result = doc.search("font")
+        json = JSON.parse response.body
+        submission.original_id = json['id']
 
-        submission.original_id = result[0].inner_html[/\d+/]
+        status = json['resultstr']
 
-        if result[1].at("a")
-          status = "Compile Error"
-        else
-          status = result[1].at("span").inner_html
-        end
         status = OJ::StatusNameToSym[status]
         submission.status = OJ::StatusSymToID[status]
         if status == :ac
-          submission.memory = result[2].inner_html[/\d+ KB/][/\d+/]
-          submission.time = result[2].inner_html[/\d+ ms/][/\d+/]
+          submission.memory = json['memory']
+          submission.time = json['time']
         elsif status == :ce
           uri = URI("#{BaseURL}/user_cmpinfo.php?id=#{submission.original_id}")
           request = Net::HTTP::Get.new(uri.request_uri)
@@ -74,7 +73,6 @@ module NKOJ
           doc = Hpricot(response.body)
           submission.error = doc.at("pre").inner_html
         end
-
         submission.save
       end
     end
